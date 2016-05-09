@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>calculate two</title>    
+</head>
+<body>
+    <p id="result">
+        
+    </p>
+    <script type="text/javascript">
+        var a = prompt("input your number a")
+        var b = prompt("input your number b")
+        var c = prompt("input your calculate")
+
+        function calc(x, y, c) {
+            if (c == "*") {
+                return x * y;
+            }else if(c =="+"){
+                return parseInt(x) + parseInt(y);
+            }else if(c =="-"){
+                return parseInt(x) - parseInt(y);
+            }else if(c =="/"){
+                return parseInt(x) / parseInt(y);
+            }else{
+                return "연산자만 입력하세요";
+            }
+        }
+        document.getElementById("result").innerHTML = calc(a,b,c);
+    </script>
+</body>
+</html>
