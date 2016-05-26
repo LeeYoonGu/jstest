@@ -5,25 +5,31 @@
     <title>tab</title>
 </head>
 <body>
-  <select id="sel" onChange="valueNew()">
-    <option selected>1</option>
-    <option>2</option>
-    <option>3</option>
-  </select>
 
+  <ul>
+    <li><a href="#" onclick="tab(this)">1</a></li>
+    <li><a href="#" onclick="tab(this)">2</a></li>
+    <li><a href="#" onclick="tab(this)">3</a></li>
+  </ul>
 
-
-  <div style="background:#ddd;width:100%; height:500px;">Number 1</div>
-  <div style="background:#ddd;width:100%; height:500px;display:none">Content 2</div>
-  <div style="background:#ddd;width:100%; height:500px;display:none">Page 3</div>
+  <div class="" style="height:200px;background-color:#ccc">
+    content1
+  </div>
+  <div class="" style="display:none;height:200px;background-color:aquamarine">
+    content2
+  </div>
+  <div class="" style="display:none;height:200px;background-color:cornflowerblue">
+    content3
+  </div>
 
     <script type="text/javascript">
-      function valueNew() {
+      function tab(a) { //인자 넘겨 받아 함수 실행
         for (var i = 0; i < document.querySelectorAll("div").length; i++) {
-            (document.querySelectorAll("div")[i]).style.display = "none";
+          (document.querySelectorAll("div")[i]).style.display = "none"; //div 순차적으로 none 처리
         }
-        document.querySelectorAll("div")[document.querySelector("#sel").value - 1].style.display = "block";
+        console.log(a.innerHTML) // 클릭된 놈의 인자를 넘겨 받아 이너 HTML을 뿌려줌
 
+        document.querySelectorAll("div")[a.innerHTML - 1].style.display = "block"; //li a html 값을 배열로 받음
       }
     </script>
 
