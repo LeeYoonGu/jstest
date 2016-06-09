@@ -7,7 +7,7 @@
 </head>
 <body>
 <div class="wrap">
-    <h1>설명</h1>
+    <!-- <h1>설명</h1>
     <ul>
         <li>* 엘리먼트에 js 이벤트 속성 사용 금지.</li>
         <li>* display none block 사용금지</li>
@@ -31,7 +31,7 @@
         <dd>정지 기능</dd>
         <dt>난이도 100.</dt>
         <dd>유동형 레이아웃!!!</dd>
-    </dl>
+    </dl> -->
 
     <div class="slide">
         <h1 class="blind">슬라이드하다</h1>
@@ -49,19 +49,19 @@
 
         <div class="slide_viewbox">
             <h2 class="blind">내용</h2>
-            <ul>
-                <li>1번 내용</li>
-                <li>2번 내용</li>
-                <li>3번 내용</li>
-                <li>4번 내용</li>
-                <li>5번 내용</li>
+            <ul id="slider">
+                <li class="slide" id>1번 내용</li>
+                <li class="slide">2번 내용</li>
+                <li class="slide">3번 내용</li>
+                <li class="slide">4번 내용</li>
+                <li class="slide">5번 내용</li>
             </ul>
         </div>
 
         <div class="slide_btn">
             <h2 class="blind">이동 버튼</h2>
-            <a href="#" class="btn_prev"><span class="blind">이전보기</span></a>
-            <a href="#" class="btn_next"><span class="blind">다음보기</span></a>
+            <a href="#" id="btn_prev" class="btn_prev"><span class="blind">이전보기</span></a>
+            <a href="#" id="btn_next" class="btn_next"><span class="blind">다음보기</span></a>
         </div>
 
         <div class="slide_autoplay">
@@ -71,6 +71,6 @@
         </div>
     </div>
 </div>
-
+<script src="slider.js"></script>
 </body>
 </html>
