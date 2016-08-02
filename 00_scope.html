@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>scope</title>    
+</head>
+<body>
+    <p id="result">
+        
+    </p>
+    <script type="text/javascript">
+    
+    var vscope = 'global';
+    
+    function fscope(){
+      var vscope = 'local';
+      console.log('함수안'+vscope)
+       // (var를 선언하지 않으면) local : 전역변수이기 때문에 함수안에 선언된 변수는 최초 전역변수의 값을 변환 시켰다. 
+       // (var를 선언하면) local : 함수안에서의 지역변수이기 때문에 동일하게 local 값이 표시 된다. 
+    }
+    
+    fscope();
+    
+    console.log('함수밖'+vscope) 
+      // (var를 선언하지 않으면) local : 전역변수이기 때문에 함수안에 선언된 변수는 최초 전역변수의 값을 변환 시켰다. 
+      // (var를 선언하면) global : 전역에서 호출 시 지역의 변수를 갖고 올 수 없으므로 전역의 global을 호출한다. 
+        
+    </script>
+</body>
+</html>

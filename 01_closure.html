@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>closure</title>
+</head>
+
+<body>
+    <p id="result">
+
+    </p>
+    <script type="text/javascript">
+        function outter() {
+            var title = 'coding everybody';
+            return function() {
+                alert(title);
+            }
+        }
+        var inner = outter(); // 호출된 순간 outer의 return(호출값)이 소멸되더라도 내부함수를 통해서 접근할 수 있는 것 또한 클로저라고 한다. 
+        
+        inner(); // inner라는 변수에 들어있는 함수를 호출한다. 
+
+        // function outter() {
+        //     var title = 'coding everybody';
+        // 
+        //     function inner() {
+        //         alert(title); // 내부 함수에서 외부 함수의 변수에 접근할 수 있는 이것을 클로져라고 한다. 
+        //     }
+        //     inner();
+        // }
+        // outter();
+    </script>
+</body>
+
+</html>

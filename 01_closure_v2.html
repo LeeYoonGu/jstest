@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>closure</title>
+</head>
+
+<body>
+    <p id="result">
+
+    </p>
+    <script type="text/javascript">
+        function factory_movie(title) {
+            return {
+                get_title: function() {
+                    return title;
+                },
+                set_title: function(_title) {
+                    title = _title
+                }
+            }
+        }
+        ghost = factory_movie('Ghost in the shell');
+        matrix = factory_movie('Matrix');
+
+        alert(ghost.get_title());
+        alert(matrix.get_title());
+
+        ghost.set_title('공각기동대');
+
+        alert(ghost.get_title());
+        alert(matrix.get_title());
+        
+        // title라는 값은 get_title, set_title 메서드를 통해서만 접근할 수 있으므로 private하게 변수를 이용할 수 있다. 
+        
+        
+    </script>
+</body>
+
+</html>
