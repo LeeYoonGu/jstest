@@ -8,54 +8,54 @@
 
 <body>
     <script type="text/javascript">
-        // o1 = {
-        //     val1: 1,
-        //     val2: 2,
-        //     val3: 3
-        // }
-        // o2 = {
-        //     v1: 10,
-        //     v2: 50,
-        //     v3: 100,
-        //     v4: 25
-        // }
-        // 
-        // function sum() {
-        //     var _sum = 0;
-        //     for (name in this) { // o1, o2를 가르킴
-        //         _sum += this[name];
-        //     }
-        //     return _sum;
-        // }
-        // alert(sum.apply(o1)) // 6 .. 인자에 객체를 담을 수도 있네..
-        // alert(sum.apply(o2)) // 185 // sum이라는 함수가 o2의 속성인 것 처럼 실행할 수 있다.
-        
         o1 = {
             val1: 1,
             val2: 2,
-            val3: 3, 
-            sum:sum
+            val3: 3
         }
         o2 = {
             v1: 10,
             v2: 50,
             v3: 100,
-            v4: 25,
-            sum:sum
+            v4: 25
         }
         
         function sum() {
             var _sum = 0;
             for (name in this) { // o1, o2를 가르킴
-              if(typeof this[name] !== 'function'){ // 함수가 아닌 것만 값을 더한다. 
                 _sum += this[name];
-              }
             }
             return _sum;
         }
+        alert(sum.apply(o1)) // 6 .. 인자에 객체를 담을 수도 있네..
+        alert(sum.apply(o2)) // 185 // sum이라는 함수가 o2의 속성인 것 처럼 실행할 수 있다.
         
-        alert(o1.sum()) 
-        alert(o2.sum()) 
+        // o1 = {
+        //     val1: 1,
+        //     val2: 2,
+        //     val3: 3, 
+        //     sum:sum
+        // }
+        // o2 = {
+        //     v1: 10,
+        //     v2: 50,
+        //     v3: 100,
+        //     v4: 25,
+        //     sum:sum
+        // }
+        // 
+        // function sum() {
+        //     var _sum = 0;
+        //     for (name in this) { // o1, o2를 가르킴
+        //       if(typeof this[name] !== 'function'){ // 함수가 아닌 것만 값을 더한다. 
+        //         _sum += this[name];
+        //       }
+        //     }
+        //     return _sum;
+        // }
+        // 
+        // alert(o1.sum()) 
+        // alert(o2.sum())
     </script>
 </body>
 
