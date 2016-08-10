@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>pure js ready 함수</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        // Mozilla, Opera, Webkit 
+        if (document.addEventListener) {
+            document.addEventListener("DOMContentLoaded", function() {
+                document.removeEventListener("DOMContentLoaded", arguments.callee, false);
+                domReady();
+            }, false);
+
+
+        }
+
+        // Internet Explorer
+        else if (document.attachEvent) {
+            document.attachEvent("onreadystatechange", function() {
+                if (document.readyState === "complete") {
+                    document.detachEvent("onreadystatechange", arguments.callee);
+                    domReady();
+                }
+            });
+        }
+
+        //DOM이 모두 로드 되었을 때
+        function domReady() {
+            //처리할 내용
+        }
+    </script>
+</body>
+
+</html>
