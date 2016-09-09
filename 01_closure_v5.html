@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>closure</title>
+</head>
+
+<body>
+    <p id="result">
+
+    </p>
+    <script type="text/javascript">
+        var SpriteFactory = (function() {    
+            "use strict"; // 엄격한 문법. 참조1
+             //--- private 영역 시작
+            var index = 0,
+                        sprites = {},
+                        Sprite = function(config) {            
+                    return {                
+                        index: index++,
+                        x: config.x || 0, //config.x가 있으면 해당 값을 x에 넣고, 없으면 0을 넣는다.
+                        y: config.y || 0, // ||는 or이기 때문에 앞에 것이 true 즉, 값이 있으면 그 값을 가지고 가고, 없으면 다음을 확인한다.
+                        width: config.width || 0,
+                        height: config.height || 0,
+                        background: config.background || '#fff'            
+                    };        
+                };
+                //--- private 영역 끝     
+            return {        
+                generateSprite: function(config) { // public 함수
+                                
+                    config = config || {};            
+                    var s = new Sprite(config); // 새로운 요정(Sprite) 클래스를 만든다.
+                                
+                    sprites['sprite_' + s.index] = s; // map 처럼 사용한다.
+                            
+                },
+                    deleteSprite: function(index) { // public 함수
+                                
+                    var sprite = this.getSprite(index); // index는 private이기 때문에 외부에서
+                    // 통제를 할 수 없기 때문에, 해당 클래스만 null로 바꿔도 무방.
+                                
+                    if (sprite) {
+                        sprite = null;
+                    }        
+                },
+                    getSprite: function(index) { // public 함수
+                                
+                    if (sprites.hasOwnProperty('sprite_' + index)) {                
+                        return sprites['sprite_' + index];            
+                    }        
+                }    
+            };
+        }()); 
+        SpriteFactory.generateSprite({});
+        SpriteFactory.generateSprite({    
+            x: 90,
+            y: 20
+        }); 
+        theSprite = SpriteFactory.getSprite(1);
+    </script>
+</body>
+
+</html>
