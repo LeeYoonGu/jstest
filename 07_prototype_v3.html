@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>prototype</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function Car() {
+            this.wheel = 4;
+            this.beep = "BEEP!";
+        };
+        
+        Car.prototype.go = function() { //Car.prototype 을 바로 선언하지 않고도 
+            alert(this.beep);
+        };
+
+        function Truck() {
+            this.wheel = 6;
+            this.beep = "HONK!";
+        };
+        
+        Truck.prototype = new Car();
+
+        function SUV() {
+            this.beep = "WANK!";
+        };
+        
+        SUV.prototype = new Car();        
+        
+        var truck = new Truck(),
+            suv = new SUV();
+            
+        alert(truck.wheel === 6 && suv.wheel === 4); 
+        // === true; suv.wheel을 정의한적은 없으나 car에서 상속받아 prototype 속성에 저장해 두었다. 
+        alert(truck.beep === "HONK!" && suv.beep === "WANK!"); // === true;
+        
+        truck.go(); // === "HONK!"
+        suv.go(); // === "WANK!"        
+        
+        // truck에 go 속성이 있는지 검사 X
+        // Truck.prototype에 go 속성이 있는지 검사 = new Car()에 속성이 있는지 검사 X
+        // new Car()에 없으면, 해당 객체의 prototype인 Car.prototype에 go 속성이 있는지 검사 X
+        // Car.prototype.go 발견 O 
+        
+    </script>
+</body>
+
+</html>

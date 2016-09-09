@@ -1,0 +1,119 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+	<meta charset="utf-8">
+	<title>select plugin</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		li {
+			list-style: none;
+		}
+		
+		body {
+			font-family: "Malgun gothic";
+			background-color: #92d8da;
+		}
+		
+		.select {
+			width: 200px;
+			margin: 50px;
+			border: 1px solid white;
+			border-radius: 10px;
+			position: relative;
+		}
+		
+		.select div {
+			padding: 10px;
+			cursor: pointer;
+		}
+		
+		.select div span {
+			position: absolute;
+			right: 0;
+			top: 0;
+			background-color: #fff;
+			padding: 10px;
+			border: 0;
+			border-top-right-radius: 5px;
+			border-bottom-right-radius: 5px;
+		}
+		
+		.select ul {
+			display: none;
+			padding: 10px;
+		}
+		
+		.select li {
+			padding: 5px 0;
+			cursor: pointer;
+		}
+		
+		.select li:hover {
+			background-color: #dacf92;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="select select1">
+		<div>
+			<strong>오늘 저녁은?</strong>
+			<span>♬</span>
+		</div>
+		<ul>
+			<li>치킨</li>
+			<li>피자</li>
+			<li>보쌈</li>
+		</ul>
+	</div>
+
+	<div class="select select2">
+		<div>
+			<strong>나는 행복합니다~</strong>
+			<span>♥</span>
+		</div>
+		<ul>
+			<li>메롱</li>
+			<li>ㅎㅎ</li>
+			<li>달려~</li>
+		</ul>
+	</div>
+	<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script>
+		(function($) { //$.noConflict() 메서드를 사용하거나 이와 같이 재귀함수로 만들어 jQuery 객체를 단일한 객체로 가지는 $ 별칭을 사용하도록 할 수 있습니다.
+		$.fn.selectDesign = function() { 
+			return this.each(function() { //this each 함수로 return 해줄 경우 class를 넘버링 하지 않아도 된다. 
+				var t = $(this);
+				var div = t.children("div");
+				var strong = div.children("strong");
+				var ul = t.children("ul");
+				var li = ul.children("li");
+				var door = false;
+
+				div.click(function() {
+					if (door) {
+						ul.hide();
+					} else {
+						ul.show();
+					}
+					door = !door;
+				});
+				
+				li.click(function() {
+					var txt = $(this).text();
+					strong.html(txt);
+					div.click(); // item 클릭 시 레이어를 닫기 위함. 
+				});
+			});
+		};
+		})(jQuery);
+		$(".select").selectDesign();
+	</script>
+</body>
+
+</html>

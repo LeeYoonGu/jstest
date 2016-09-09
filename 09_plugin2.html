@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+    <title>jQuery 플러그인 만들기 - Defaults and Options </title>
+    <style type="text/css">
+        li {
+            display: inline;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+    <script type="text/javascript" src="js/jquery.maxWidth-3.js"></script>
+    <script>
+        (function($) {
+            $.fn.maxWidth = function($resultObj, options) {
+                var max = 0;
+                var i = 0;
+                var opts = {
+                    fontWeight: "normal",
+                    fontSize: "24px",
+                    color: "blue"
+                }                
+                if (options) {
+                    $.extend(opts, options);
+                }
+                return this.each(function() {
+                    var thisWidth = $(this).width();
+                    max = Math.max(max, thisWidth);
+                    // i++;
+                    var str = '[목록' + i + ']의 너비 : <span style="' +
+                        'font-weight:' + opts.fontWeight + '; ' +
+                        'font-size:' + opts.fontSize + '; ' +
+                        'color:' + opts.color + '; ' +
+                        '">' + thisWidth + '</span><br>';
+
+                    $resultObj.append(str);
+                });
+            };
+        })(jQuery);
+    </script>
+</head>
+<body>
+    <h1>목록의 너비 얻기</h1>
+    <ul>
+        <li>가나다</li>
+        <li>ABC</li>
+        <li>123</li>
+    </ul>
+    <p>플러그인에 다양한 옵션을 넘겨주거나 기본 설정된 옵션을 사용하기</p>
+    <h3>results</h3>
+    <div id="results"></div>
+    <script type="text/javascript">
+        // 요소의 너비를 얻어 option에 설정된 글꼴스타일로 출력하기
+        $(document).ready(function() {
+            var $results = $('#results');
+            //옵션 적용
+            var options = {
+                fontWeight: "bold",
+                fontSize: "36px",
+                color: "red"
+            }
+            $('li').maxWidth($results, options);
+        });
+    </script>
+</body>
+
+</html>

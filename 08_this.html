@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="Generator" content="EditPlus®">
+    <meta name="author" content="Choi,Yong-hun" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+</head>
+
+<body>
+
+    <input type="text" id="test1" />
+
+    <br/>
+    <hr/>
+    <br/>
+
+    <input type="text" id="input1" />
+
+    <script>
+        jQuery(document).on("focus", "input", function(e) {
+            console.log(jQuery(e.target).attr("id"));
+        });
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>pure js ready 함수</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function Person(name, blog) {
+            this.name = name;
+            this.blog = blog;
+        }
+        
+        Person.prototype = {
+            getName: function() {
+                return this.name;
+            },
+            getBlog: function() {
+                return this.blog;
+            },                         
+            gender: function() {
+                return this.gender;
+            }            
+        };
+
+        var unikys = new Person(),
+            stranger = new Person();
+
+        Person.prototype.gender = "male";
+        
+        unikys.gender = "female";
+        stranger.gender = "female";
+
+        console.log(" unikys gender " + unikys.gender); //femail
+        console.log(" stranger gender " + stranger.gender); //femail         
+        console.log(" Person gender " + Person.prototype.gender); // male (원형은 변하지 않는다. )
+
+        Person.prototype.gender = "female"; //prototype를 통해서만 원형을 변경할 수 있다. 
+
+        console.log(" Person gender " + Person.prototype.gender); // female 
+                
+    </script>
+</body>
+
+</html>

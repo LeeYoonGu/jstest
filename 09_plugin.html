@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>jQuery 플러그인 만들기 - Basic</title>
+    <style type="text/css">
+        li {
+            display: inline;
+        }
+    </style>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>    
+    <script>
+        (function($) {
+            $.fn.maxWidth = function($resultObj) {
+                var max = 0;
+                var i = 0;
+                var str = "";
+
+                this.each(function() { // 넘겨받은 이벤트 선택자가 li[]형태로 갖고 오기 때문에 this.each를 써서 각각 함수에 바인딩 시켜주었다. 
+                    var thisWidth = $(this).width(); // 48, 30, 27                                       
+                    max = Math.max(max, thisWidth); // thisWidth에 있는 (배열)값이 max와 비교하여 max에 대입해가면서 최대값을 뽑는다. 
+                    i++;
+                    str += "[목록" + i + "]의 너비 : " + thisWidth + "<br>";
+                });
+                $resultObj.html(str);                
+                return max;
+            };
+        })(jQuery);
+    </script>
+</head>
+<body>
+    <h1>목록 중 가장 큰 너비 얻기</h1>
+    <ul>
+        <li>가나다</li>
+        <li>ABC</li>
+        <li>123</li>
+    </ul>
+    <h3>results</h3>
+    <div id="results"></div>
+    <script type="text/javascript">
+        // // 가장 너비가 긴 요소의 길이 얻기
+        $(document).ready(function() {
+            var $results = $('#results');
+            var max_width = $('li').maxWidth($results); 
+            console.log(max_width); //return max; 를 넘겨 받는다. 
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>select plugin</title>
+</head>
+
+<body>
+
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script>
+        function g_getSelection() {
+            if (window.getSelection) {
+                window.g_getSelection = function() {
+                    return window.getSelection();
+                };
+            } else if (document.selection) {
+                window.g_getSelection = function() {
+                    return document.selection;
+                };
+            } else {
+                window.g_getSelection = function() {
+                    alert("이 브라우저는 셀렉션을 지원하지 않습니다.")
+                };
+            }
+
+            return g_getSelection();
+        }
+    </script>
+</body>
+</html>

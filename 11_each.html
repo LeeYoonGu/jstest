@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>^^</title>
+    <style>
+        .box {}
+        
+        .box div {
+            width: 100px;
+            height: 100px;
+            margin: 10px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script>
+        var n = 500;
+        $(".box div").each(function(i) { // index 만큼 반복하면서 0*500, 1*500 이렇게 순차적으로 진행하게 된다. 
+            $(this).delay(i * n).animate({
+                "width": "+=500"
+            });
+        });
+    </script>
+
+</body>
+
+</html>

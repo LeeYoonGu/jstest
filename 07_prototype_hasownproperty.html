@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>prototype hasownproperty</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    
+        function Person(name, blog) {
+            this.name = name;
+            this.blog = blog;
+        }
+        
+        Person.prototype.getName = function() {
+            return this.name;
+        };
+        Person.prototype.getBlog = function() {
+            return this.blog;
+        };
+
+        var unikys = new Person("unikys", "unikys.tistory.com");
+
+        // for (var prop in unikys) {
+        //     console.log("unikys[" + prop + "] = " + unikys[prop]);
+        // }
+
+        for (var prop in unikys) {
+            if (unikys.hasOwnProperty(prop)) {
+                console.log("unikys[" + prop + "] = " + unikys[prop]);
+            }
+        }    
+        
+        
+    </script>
+</body>
+
+</html>

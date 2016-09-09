@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>for in</title>    
+</head>
+
+<body>
+
+    <script src="http://code.jquery.com/jquery-1.12.3.min.js"></script>
+    <script>
+    
+    var man = {
+      hanss : 2, 
+      legs : 2, 
+      heads : 1
+    }    
+    
+    if(typeof Object.prototype.clone ==="undefined"){
+      Object.prototype.clone = function(){        
+      }
+    }
+    
+    // for(var i in man){
+    //   // if(man.hasOwnProperty(i)){ // 조건서식을 넣어야지만 prototype의 속성이 노출되지 않는다. 
+    //     
+    //     console.log(i, ":", man[i]);
+    //   // }
+    // }        
+    
+     for(var i in man){
+       if(Object.prototype.hasOwnProperty.call(man, i)){ // 걸러내기 
+        console.log(i, ":", man[i]);
+       }
+     }    
+  
+    </script>
+
+</body>
+
+</html>
