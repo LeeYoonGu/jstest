@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ko">
+<head>
+	<meta charset="utf-8">
+	<title>make plugin</title>
+</head>
+
+<body>
+	<p>Array contents:</p>
+	<ul id="array-contents"></ul>
+	<p>Array Sum:</p>
+	<div id="array-sum"></div>
+
+
+	<script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+	<script>
+		$(document).ready(function() {
+					jQuery.sum = function(array) {
+						var total = 0;
+						jQuery.each(array, function(index, value) {
+							total += value;
+						});
+					};
+
+					var myArray = [52, 97, 0.5, -22];
+					$.each(myArray, function(index, value) {
+							$('#array-contents').append('' + value + '');
+							}); $('#array-sum').append($.sum(myArray));
+					});
+	</script>
+</body>
+
+</html>
