@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>closure</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    function Rectangle(w, h){
+
+      var width = w;
+      var height = h;
+
+      this.getwidth = function () {
+        return w;
+      }
+
+      this.getheight = function () {
+        return h;
+      };
+
+      this.setwidth = function(w) {
+        if(w < 0){
+          throw '길이는 음수일 수 없습니다.'
+        }else{
+          width = w;
+        }
+      };
+
+      this.setheight = function(h) {
+        if(h < 0){
+          throw '길이는 음수일 수 없습니다.'
+        }else{
+          height = h;
+        }
+      };
+    }
+
+    Rectangle.prototype.getarea = function() {
+      return this.getwidth() * this.getheight()
+    };
+
+
+    var rectangle = new Rectangle(5, -7);
+
+    alert("area" + rectangle.getarea());
+
+
+    </script>
+</body>
+
+</html>

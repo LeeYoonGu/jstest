@@ -21,16 +21,18 @@
             document.getElementById("wrapper").addEventListener("click", append);
 
             function append(e) {
-                console.log("document click")
+                // console.log("document click")
                 var target = e.target || e.srcElement || event.srcElement; // click 되는 target을 담음
                 var callbackFunction = callback[target.getAttribute("data-cb")];  // target의 data-cb의 값을 담음
-                appendDiv.appendChild(callbackFunction()); 
+                appendDiv.appendChild(callbackFunction());
                 //★callbackFunction이 변수이지만 callback 객체의 함수를 사용할 수 있음
+                // console.log(callbackFunction)
             };
             var callback = {
                 "1": (function() {
                     var div = document.createElement("div"); // #2
                     div.innerHTML = "1번";
+
                     return function() {
                         return div.cloneNode(true); // #3
                     }

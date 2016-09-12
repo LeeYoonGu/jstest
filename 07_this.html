@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>prototype</title>
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+</head>
+
+<body>
+
+<p>
+  input
+  <input type="checkbox" name="name" value="" id="input">
+</p>
+
+    <script type="text/javascript">
+        $('#input').each(function() {  // each 함수를 통해 바인딩을 해야 this가 windows가 아닌 input으로 바인딩 된다. 
+            if ($(this).is(':checked')) {
+                $(this).parent().addClass('active');
+            }
+        });
+    </script>
+</body>
+
+</html>
