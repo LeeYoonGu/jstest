@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>prototype</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+
+    var app = (function() {
+        var privateVar = 'private';
+        return {
+            prop : privateVar
+        };
+    }());  // 즉시실행함수 방식을 사용해야지만 변수의 접근 범위가 함수 내부가 아닌 외부에서도 가능해진 것입니다 () 표기가 뒤로가도 같은 결과값이 나온다. 
+
+    console.log(app.prop); // "private" 출력
+    </script>
+
+</body>
+
+</html>

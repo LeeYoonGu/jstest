@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>prototype</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+    
+        var buyCar = function(carName) {
+            // "내가 구매한 차는 sonata입니다." 출력
+            console.log('내가 구매한 차는 ' + carName + '입니다.');
+        };
+        buyCar('sonata');
+
+        (function(carName) {
+            // "내가 구매한 차는 sonata입니다." 출력
+            console.log('내가 구매한 차는 ' + carName + '입니다.');
+        }('sonata'));
+    </script>
+
+</body>
+
+</html>

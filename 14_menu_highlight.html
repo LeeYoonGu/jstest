@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>prototype</title>
+    <style media="screen">
+        .current>a {
+            font-weight: bold;
+            background: #ff0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav id="gnb">
+        <h2>GNB</h2>
+        <ul>
+            <li><a href="#menu1">Menu1</a></li>
+            <li><a href="#menu2">Menu2</a></li>
+            <li><a href="#menu3">Menu3</a></li>
+            <li><a href="#menu4">Menu4</a></li>
+        </ul>
+    </nav>
+    <script src="http://code.jquery.com/jquery-2.2.1.min.js"></script>
+    <script type="text/javascript">
+        jQuery(function($) {
+
+            // 현재 메뉴 하이라이팅 하기 함수
+            var current_menu = function() {
+                $("#gnb>ul>li>a").each(function() { // 각 메뉴 링크마다 실행할 함수.
+                    var $this = $(this),
+                        pageURL = location.href, // 현재 페이지 주소를 pageURL 변수에 할당.
+                        menuURL = $this.attr("href"); // 메뉴 링크 값을 menuURL 변수에 할당.
+                    if (pageURL.indexOf(menuURL) !== -1) { // 페이지 URL 값과 메뉴 URL 값을 비교(동일 문자열이 존재하는 경우 일치하는 문자열의 위치 값이 숫자로 반환되지만, 동일한 값이 없으면 -1이 반환되는 조건을 이용)
+                        $this.parent().addClass("current"); // 동일한 문자열이 존재하는 경우 li 요소에 .current 클래스를 추가.
+                    } else {
+                        $this.parent().removeClass("current");
+                    }
+                });
+            };
+
+            current_menu(); // DOM 로드 시점에 실행.
+
+            $(document).ajaxComplete(current_menu); // AJAX 로딩 이후 실행(옵션)
+
+            $(document).on("click", "#gnb>ul>li>a", function() { // 링크 클릭 이후 실행(옵션)
+                setTimeout(function() {
+                    current_menu();
+                }, 200);
+            });
+
+        });
+    </script>
+</body>
+
+</html>
