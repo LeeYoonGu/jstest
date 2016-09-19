@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>create : prototype</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+        function Person(name) {
+            this.name = name;
+        };
+        
+        Person.prototype = {
+            yell: function() {
+                alert("My name is " + this.name);
+            }
+        };
+        var unikys = Object.create(Person.prototype); // #1
+        
+        unikys.name = "Unikys"; // #2
+        unikys.yell();
+        
+    </script>
+</body>
+
+</html>

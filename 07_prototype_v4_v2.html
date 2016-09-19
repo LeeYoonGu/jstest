@@ -1,14 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="utf-8">
     <title>prototype</title>
 </head>
-
-<body>
-  
-    <script type="text/javascript">
+<body>  
+    <script type="text/javascript">    
     
         function Person() {
             this.name = "anonymous";
@@ -17,24 +14,22 @@
                 alert("Hello, my name is " + this.name);
             };
         }
-
+        
         function Unikys() {
             this.name = "Unikys";
             this.job = "Programmer";
         }
-        Unikys.prototype = new Person(); // (1)
         
+        Unikys.prototype = new Person(); // (1)        
         var unikys = new Unikys();
         unikys.sayHello(); // Hello, my name is Unikys
         
         console.log(unikys instanceof Unikys); // === true;
         console.log(unikys instanceof Person); // === true;
+                
+        console.log(unikys.constructor == Unikys); // false;
+        console.log(unikys.constructor == Person); // true;       
         
-        console.log(unikys.constructor == Unikys); // false
-        console.log(unikys.constructor == Person); // true       
-        
-    </script>
-    
+    </script>    
 </body>
-
 </html>
