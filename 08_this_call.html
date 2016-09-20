@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <script>
+        var junghwan = {
+            firstname: 'junghwan',
+            age: 27,
+            who: function() {
+                console.log(this.firstname + ' is ' + this.age + ' years old');
+            }
+        }
+
+        var who = junghwan.who;
+
+        who(); // undefined is undefined years old // why undefined??
+        // [출처] [자바스트립트] 자바스크립트의 this 그리고 call, apply|작성자 Dreamy
+    </script>
+
+</body>
+
+</html>
