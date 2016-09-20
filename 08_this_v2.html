@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <meta name="Generator" content="EditPlus®">
+    <meta name="author" content="Choi,Yong-hun" />
+    <meta name="keywords" content="" />
+    <meta name="description" content="" />
+    <script src="https://code.jquery.com/jquery-1.12.3.min.js"></script>
+</head>
+
+<body>
+
+    <script>
+       
+       function sayNameForAll(){
+         console.log(this.name);
+       }
+       
+       
+       var person  = {
+         name : "lyg",
+         sayName: sayNameForAll // 프로퍼티 키에 함수를 호출할때는 선언식 함수의 이름만 기재하면 된다. 
+       }
+       
+       person.sayName();    
+        
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>함수 단위 코딩</title>
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<script>
+
+//텝메뉴 관련 변수
+var $tabMenu = null;
+var $menuItems = null;
+var $selectMenu = null;
+
+$(document).ready(function(){
+    // 텝메뉴 요소 초기화
+    init();
+
+    // 텝메뉴 요소에 이벤트 등록
+    initEvent();
+});
+
+
+function init(){
+    $tabMenu = $("#tabMenul");
+    $menuItems = $tabMenu.find("li");
+}
+
+function initEvent(){
+    $menuItems.on("click", function(){
+        setSelectItem($(this));
+    });
+}
+
+// $menuItem에 해당하는 메뉴 아이템 선택하기
+function setSelectItem($menuItem){
+
+    // 기존 선택 메뉴 아이템을 비활성화 처리하기
+    if($selectMenu){
+        $selectMenu.removeClass("select");
+    }
+
+    // 신규 아이템을 활성화 처리하기
+    $selectMenu = $menuItem;
+    $selectMenu.addClass("select");
+
+}
+
+
+</script>
+<title>test</title>
+<style>
+.select{color:red}
+
+</style>
+</head>
+<body>
+<ul id="tabMenul">
+<li>naver</li>
+<li>daum</li>
+<li>google</li>
+</ul>
+</body>
+</html>

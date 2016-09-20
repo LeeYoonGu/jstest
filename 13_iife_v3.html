@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <title>prototype</title>
+    <title>IIFE</title>
 </head>
 
 <body>
@@ -12,10 +12,11 @@
         var clerk = (function() {
             var name = 'Teo';
             var sex = '남자';
-            var position = '수석 엔지니어';
-            // salary private
+            var position = '수석 엔지니어';            
+            
             var salary = 2000;
             var taxSalary = 200;
+            
             var totalBonus = 100;
             var taxBonus = 10;
 
@@ -32,15 +33,17 @@
                 name: name,
                 sex: sex,
                 position: position,
+                // salary: salary, // return 값에 포함되지 않은 변수는 외부에서 접근할 수 없다. 
                 paySalary: paySalary,
                 payBonus: payBonus
             };
-        }());
+        }()); // 즉시실행함수가 clerk변수에 저장되는 것이 아니라 즉시실행함수의 return값이 clerk변수에 저장됩니다. 
+        // () 이걸 빼면?? 바로 return 하지 못함. 
 
         // name 속성은 public
         console.log(clerk.name); // 'Teo' 출력
-        // salary 변수는 즉시실행함수 내부 변수이므로 private why????
         console.log(clerk.salary); // undefined 출력
+        // salary 변수는 즉시실행함수 내부 변수이므로 private(return 값에 포함되지 않은 변수는 외부에서 접근할 수 없다.)
 
         // paySalary 메소드는 public
         console.log(clerk.paySalary()); // 1800 출력

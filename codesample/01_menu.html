@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<title>XpressEngine - PHP Open Source CMS</title>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/xeicon/2.0.0/xeicon.min.css">
+<!-- <link rel="stylesheet" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/menu.css">
+</head>
+<body class="desktop">
+    <header>
+        <button class="btn_toggle" type="button">
+            <span class="blind">Toggle nav_lstigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar v2"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <div class="brand_area">
+            <a href="#" class="link_brand"><i class="xi-xpressengine"><span class="blind">XpressEngine</span></i></a>
+        </div>        
+		<div class="plugin_area">
+	        <a href="#" class="plugin"><i class="xi-cog"></i></a>
+            <a href="#" class="plugin"><i class="xi-user"></i><div class="xo-badge floating red"></div></a>
+        </div>        
+        <nav>
+        <!-- [D] 메뉴 활성화 시 li 에 class="on" 적용 -->
+            <ul class="nav_lst">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Feature</a></li>
+            <li><a href="#">Demo</a></li>
+            <li class="depth">
+                <a href="#">Support<em class="ico_arrow"></em></a>
+                <ul class="depth_lst">
+                <li class="on"><a href="#">document</a></li>
+                <li class="depth">
+                    <a href="#">tutorial<em class="ico_arrow"></em></a>
+                    <ul class="depth_lst">
+                    <li><a href="#">3depth</a></li>
+                    <li><a href="#">3depth</a></li>
+                    <li><a href="#">3depth</a></li>
+                    </ul>                        
+                </li>
+                <li><a href="#">Q&amp;A</a></li>
+                <li><a href="#">develope guide</a></li>
+                <li><a href="#">API</a></li>
+                </ul>
+            </li>
+            <li class="depth">
+                <a href="#">plugin<em class="ico_arrow"></em></a>
+                <ul class="depth_lst">
+                <li><a href="#">Q&amp;A</a></li>
+                <li><a href="#">develope guide</a></li>
+                <li><a href="#">API</a></li>
+                </ul>
+            </li>            
+            </ul>
+        </nav>
+    </header>	
+    <div style="height:1800px">        
+    </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script src="js/menu.js"></script>
+</html>

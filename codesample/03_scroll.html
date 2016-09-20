@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<title>상단 스크롤 시 fixed</title>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/xeicon/2.0.0/xeicon.min.css">
+<!-- <link rel="stylesheet" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/menu.css">
+</head>
+<body class="desktop">
+    <header>
+        
+    </header>	
+    <div style="height:1800px">        
+    </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script>    
+    	$(function(){
+		var state = true;
+		var currentScrollTop, temporalScroll = 0;
+		// 텍스트 애니메이션 flag
+		// fixed 메뉴 적용 시 클래스 생성 및 제거를 한번만 적용하기 위한 flag
+		var checkflag = true;
+		var i = 0;
+		$(window).scroll(function(event){
+			currentScrollTop = $(this).scrollTop();
+
+			// 상단 메뉴 컨트롤 기능
+			if(currentScrollTop >0) {
+				// fixed 메뉴 적용
+				if(checkflag) {
+
+					checkflag = false;
+				}
+
+				/* 애니메이션 동작 중 체크 : true, false */
+				var isAnimation = $(".desktop header").is(":animated");
+
+				if (currentScrollTop > temporalScroll) {
+					if( !isAnimation ){
+						$( ".desktop header" ).animate({
+							top: -68,
+						}, 200 );
+					}
+				} else {
+					if( !isAnimation ){
+						$( ".desktop header" ).addClass("navbar-fixed-top");
+						$( ".navbar-fixed-top" ).animate({
+							top: 0,
+						}, 200 );
+					}
+				}
+			} else {
+				// 기본 메뉴 적용
+				if(!checkflag) {
+					$( ".desktop header" ).removeClass("navbar-fixed-top");
+					$( ".desktop header" ).css("top","-68px");
+					checkflag = true;
+				}
+			}
+			temporalScroll = currentScrollTop;
+		});
+	});
+</script>
+</html>

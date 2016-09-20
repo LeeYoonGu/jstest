@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>자바스크립트 모듈 작성시 코드 순서</title>
+</head>
+
+<body>
+
+    <script type="text/javascript">
+        /**
+         * Library 모듈화를 위한 코딩기법 1
+         * call 함수 이용
+         */
+        (function() {
+            'use strict';
+            var root = this;
+            var version = '1.0';
+            var Module1;
+            
+            if (typeof exports !== 'undefined') {
+                Module1 = exports;
+            } else {
+                Module1 = root.Module1 = {};
+            }
+            Module1.getVersion = function() {
+                return version;
+            }
+        }).call(this);
+        console.log(Module1.getVersion());
+
+        /**
+         * Library 모듈화를 위한 코딩기법 2
+         * 글로벌 객체를 파라미터로 전달
+         */
+        (function(global) {
+            var root = global;
+            var version = '1.0';
+            var Module2;
+            if (typeof exports !== 'undefined') {
+                Module2 = exports;
+            } else {
+                Module2 = root.Module2 = {};
+            }
+            Module2.getVersion = function() {
+                return version;
+            }
+        }(this));
+        console.log(Module2.getVersion());
+
+        /**
+         * Library 모듈화를 위한 코딩기법 3
+         * 즉시실행함수 내부에서 글로벌 객체를 내부 변수에 할당
+         */
+        (function() {
+            var root = this;
+            var version = '1.0';
+            var Module3;
+            if (typeof exports !== 'undefined') {
+                Module3 = exports;
+            } else {
+                Module3 = root.Module3 = {};
+            }
+            Module3.getVersion = function() {
+                return version;
+            }
+        }());
+        console.log(Module3.getVersion());
+
+        /**
+         * Library 모듈화를 위한 코딩기법 4
+         * apply 함수 이용
+         */
+        (function() {
+            var root = this;
+            var version = '1.0';
+            var Module4;
+            if (typeof exports !== 'undefined') {
+                Module4 = exports;
+            } else {
+                Module4 = root.Module4 = {};
+            }
+            Module4.getVersion = function() {
+                return version;
+            }
+        }).apply(this);
+        console.log(Module4.getVersion());
+
+        /**
+         * Library 모듈화를 위한 코딩기법 5
+         * 기명 즉시실행함수 이용
+         */
+        var Module5 = (function() {
+            var root = this;
+            var version = '1.0';
+            var Module;
+            if (typeof exports !== 'undefined') {
+                Module = exports;
+            } else {
+                Module = root.Module = {};
+            }
+            Module.getVersion = function() {
+                return version;
+            }
+            return Module;
+        }());
+        console.log(Module5.getVersion());
+        
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>오브젝트 리터럴 방식</title>
+<script src="https://code.jquery.com/jquery-1.11.3.js"></script>
+<script>
+
+//텝메뉴 관련 변수
+var $tabMenu = null;
+var $menuItems = null;
+var $selectMenu = null;
+
+$(document).ready(function(){
+    // 텝메뉴 요소 초기화
+    tabMenul.init();
+
+    // 텝메뉴 요소에 이벤트 등록
+    tabMenul.initEvent();
+    
+});
+
+var tabMenul = {
+
+    $tabMenu : null,
+    $menuItems : null,
+    $selectMenu : null,
+
+    init : function(){
+        this.$tabMenu = $("#tabMenul");
+        this.$menuItems = this.$tabMenu.find("li");
+    },
+
+    initEvent : function(){
+        var objThis = this;
+        this.$menuItems.on("click", function(){
+            objThis.setSelectItem($(this));
+        });
+
+    },
+    // $menuItem에 해당하는 메뉴 아이템 선택하기
+    setSelectItem : function($menuItem){
+        // 기존 선택 메뉴 아이템을 비활성화 처리하기
+        if(this.$selectMenu){
+            this.$selectMenu.removeClass("select");
+        }
+
+        // 신규 아이템을 활성화 처리하기
+        this.$selectMenu = $menuItem;
+        this.$selectMenu.addClass("select");
+    }
+}
+
+</script>
+<title>test</title>
+<style>
+.select{color:red}
+
+</style>
+</head>
+<body>
+<ul id="tabMenul">
+<li>naver</li>
+<li>daum</li>
+<li>google</li>
+</ul>
+</body>
+</html>

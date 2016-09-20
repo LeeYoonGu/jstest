@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<title>XpressEngine - PHP Open Source CMS</title>
+
+<style>
+.desktop .content.bg_invol {
+    height:600px;
+    margin-top:500px;
+    background: url(img/bg_invol.jpg) 50% 0 no-repeat fixed;
+    background-size: cover;
+}
+
+</style>
+<!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+<!--[if lt IE 9]>
+    <script src="assets/vendor/html5shiv/dist/html5shiv.min.js"></script>
+    <script src="assets/vendor/respond/dest/respond.min.js"></script>
+    <![endif]-->
+</head>
+<!--[D] 서브 페이지의 경우 body 클래스에 sub 추가, 모바일/테블릿 환경의 경우 body 클래스에 "desktop" 제거 -->
+<body class="desktop">
+    
+    <!-- <div class="spot_area">
+    	<div class="blur" style="background:url(plugins/official_homepage/assets/theme/img/bg_spot_blur.jpg) 50% 50% no-repeat;background-size:cover"></div>
+        <div class="xo-container">
+        	<div class="spot_con">
+                <h1>Everything what you need.</h1>
+                <p>XpressEngine3는 Laravel framework 기반의 서비스 친화적인 CMS입니다. 다양한 번들 시스템으로 빠른 피드백을 제공하고 유연한 확장성을 가지고 있습니다. 지금 XE3와 함께 웹의 미래를 만들어가세요.</p>
+                <a href="#" class="btn_dwn">Download XpressEngine3<br><span>ver 3.0.2  ‘16.01.01</span></a>
+                <div><a href="#" class="btn btn_txt">Clone the Repo</a><a href="#" class="btn btn_txt">Demo</a></div>
+            </div>
+        </div>
+    </div> -->
+    <div id="content" class="ct">        
+        <div class="content bg_invol">
+            <div class="xo-container">                
+            </div>
+        </div>         
+	</div>        	
+    <div style="height:800px"></div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.parallax-1.1.3.js"></script>
+<script>
+	$('.desktop .bg_invol').parallax("50%", 0.3);//패럴럭스 위치 및 스크롤을 따라다니는 정도를 조절 함
+</script>
+</html>

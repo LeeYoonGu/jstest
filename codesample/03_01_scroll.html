@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<title>하단 스크롤 시 fixed</title>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/xeicon/2.0.0/xeicon.min.css">
+<!-- <link rel="stylesheet" href="css/bootstrap.min.css">-->
+<link rel="stylesheet" href="css/normalize.css">
+<style>
+	
+	header{position: fixed;top:0;left:0;width: 100%; height: 60px;background-color: aqua}
+    header.fixed-top{background-color: blueviolet}
+	
+</style>
+</head>
+<body>
+    <header>
+        
+    </header>	
+    <div style="height:1800px">        
+    </div>
+</body>
+<script src="js/jquery.min.js"></script>
+<script>    
+	$(function(){
+		var currentScrollTop, temporalScroll = 0;
+		// fixed 메뉴 적용 시 클래스 생성 및 제거를 한번만 적용하기 위한 flag
+		var checkflag = true;		
+		$(window).scroll(function(event){
+			currentScrollTop = $(this).scrollTop();
+			// 상단 메뉴 컨트롤 기능
+			if(currentScrollTop >0) {
+				// fixed 메뉴 적용
+				if (currentScrollTop > temporalScroll & checkflag) {					
+					$( "header" ).addClass("fixed-top");						
+					checkflag = false;
+				} 
+			} else {
+				// 기본 메뉴 적용
+				if(!checkflag) {
+					$( "header" ).removeClass("fixed-top");
+					checkflag = true;
+				}
+			}
+			temporalScroll = currentScrollTop;
+		});
+	});
+</script>
+</html>

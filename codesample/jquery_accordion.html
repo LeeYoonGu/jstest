@@ -1,0 +1,79 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>accordion content</title>
+
+<link rel="stylesheet" href="//cdn.jsdelivr.net/xeicon/1.0.4/xeicon.min.css">
+<style type="text/css">
+.xi{display:inline-block;font-family:xeicon;font-style:normal;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+.accordion-container{width:100%;margin:0 0 2px;clear:both;}
+.accordion-toggle{position:relative;display:block;padding:20px;font-size:16px;font-weight:300;background:#999;color:#fff;text-decoration:none;padding-left:3em}
+.accordion-toggle.open{background:#333;color:#fff;}
+.accordion-toggle:hover{background:#666;}
+.accordion-toggle span.toggle-icon{position:absolute;top:16px;left:20px;font-size:1.5em;}
+.accordion-content{display:none;padding:20px;overflow:auto;}
+.accordion-content img{display:block;float:left;margin:0 15px 10px 0;max-width:100%;height:auto;}
+</style>
+</head>
+<body>
+<section id="qa_section">
+    <!-- Container -->
+    <div class="container">
+        <!-- Section Title -->
+        <div class="section-title">
+            <h1>Accordion content</h1>
+            <span class="border"></span>
+            <p>accordion을 이용한 토글형태의 jquery</p>
+        </div>			
+        <!--/Section Title -->
+        <!-- Jquery로 구현된 accordion -->
+        <div class="acc_content">
+            <div class="accordion-container">
+                <a href="#" class="accordion-toggle">질문항목 영역1<span class="toggle-icon"><i class="xi xi-plus-circle"></i></span></a>
+                <div class="accordion-content" style="display: none;">
+                    <p>답변영역 입니다.<br>상단에 +, - 를 표기해서 토글형태를 표현</p>
+                </div>
+                <!--/.accordion-content-->
+            </div>
+        	<!--/.accordion-container-->
+            <div class="accordion-container">
+                <a href="#" class="accordion-toggle">질문항목 영역2<span class="toggle-icon"><i class="xi xi-plus-circle"></i></span></a>
+                <div class="accordion-content" style="display: none;">
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+                    <p>Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                </div>
+                <!--/.accordion-content-->
+            </div>
+    	</div>
+	</div>
+</section>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<!-- accordion interaction -->
+<script type="text/javascript">
+$(document).ready(function () {
+	$('.accordion-toggle').on('click', function(event){
+		event.preventDefault();
+		// create accordion variables
+		var accordion = $(this);
+		var accordionContent = accordion.next('.accordion-content');
+		var accordionToggleIcon = $(this).children('.toggle-icon');
+		
+		// toggle accordion link open class
+		accordion.toggleClass("open");
+		// toggle accordion content
+		accordionContent.slideToggle(250);
+		
+		// change plus/minus icon
+		if (accordion.hasClass("open")) {
+			accordionToggleIcon.html("<i class='xi xi-minus-circle'></i>");
+		} else {
+			accordionToggleIcon.html("<i class='xi xi-plus-circle'></i>");
+		}
+	});
+});
+</script>
+<!-- //accordion interaction -->
+</body>
+</html>

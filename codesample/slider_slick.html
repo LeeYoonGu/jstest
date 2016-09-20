@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+
+<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.5.8/slick.css"/>
+<link rel="stylesheet" type="text/css" href="http://cdn.jsdelivr.net/jquery.slick/1.5.8/slick-theme.css"/>
+<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+<style type="text/css">
+h1,p{color:#fff}
+#slick{background-color:#333;padding-bottom:30px}
+</style>
+</head>
+<body>
+<!-- Slick Slider -->
+<section id="slick" class="content">
+    <!-- Container -->
+    <div class="container">
+        <!-- Section Title -->
+        <div class="section-title">
+            <h1>Slick</h1>
+            <span class="border"></span>
+            <p class="kor_txt">Slick Slider</p>
+        </div>				
+        <!--/Section Title -->
+        <div class="part_people">
+            <div style="width:200px;height:200px"><img src="http://dev.ui.naver.com/svnview/user/IN10229/test_parallax_scrolling/sample/images/people/@00x200x.png" style="margin:0 auto"></div>
+            <div style="width:200px;height:200px"><img src="http://dev.ui.naver.com/svnview/user/IN10229/test_parallax_scrolling/sample/images/people/@00x200x.png" style="margin:0 auto"></div>
+            <div style="width:200px;height:200px"><img src="http://dev.ui.naver.com/svnview/user/IN10229/test_parallax_scrolling/sample/images/people/@00x200x.png" style="margin:0 auto"></div>
+            <div style="width:200px;height:200px"><img src="http://dev.ui.naver.com/svnview/user/IN10229/test_parallax_scrolling/sample/images/people/@00x200x.png" style="margin:0 auto"></div>
+            <div style="width:200px;height:200px"><img src="http://dev.ui.naver.com/svnview/user/IN10229/test_parallax_scrolling/sample/images/people/@00x200x.png" style="margin:0 auto"></div>
+        </div>
+    </div>
+    <!-- Container -->
+</section>
+<!-- //Slick Slider -->
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript" src="./js/slick.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+  $('.part_people').slick({
+	infinite: true,
+	dots: true,
+	adaptiveHeight: true,
+	//autoplay: true,
+	slidesToShow: 3,
+	slidesToScroll: 3
+  });
+});
+</script>
+</body>
+</html>

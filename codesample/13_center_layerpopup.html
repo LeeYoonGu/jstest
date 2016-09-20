@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<title>상항중앙팝업:XE_jQuery</title>
+</head>
+
+<body>
+    <script type="text/javascript">
+    /// <summary>
+    /// ▶ 레이어 보기
+    /// </summary>
+ function objView(obj)
+ {
+  var win = $(window);
+  var winH = win.scrollTop() + ((win.height() - $('#'+ obj).height()) / 2);
+  var winW = win.scrollLeft() + ((win.width() - $('#'+ obj).width()) / 2);
+  $('#'+ obj).css('top', winH);
+  $('#'+ obj).css('left', winW);
+  $('#'+ obj).show();
+  $('#'+ obj).focus();
+ }
+    /// <summary>
+    /// ▶ 레이어 숨기기
+    /// </summary>
+ function objHide(obj)
+ {
+  $('#'+ obj).hide();
+ }
+</script>
+<body>
+ <input type='button' value='보기' onClick='objView("dview");' style="cursor ointer;" />
+ <div id="dview" style="position:absolute;z-index:21;display:none;">
+  상하 좌우 모두 정렬 됨
+  <input type='button' value='닫기' onClick='objHide("dview");' style="cursor ointer;" />  
+ </div>
+<script src="http://sukmin.github.io/cmd/codereview/jquery-extend/js/jquery-1.11.2.min.js" type="text/javascript"></script>
+</body>
+</html>

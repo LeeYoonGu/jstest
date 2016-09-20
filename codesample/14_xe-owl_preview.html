@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">    
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <style>
+        .owl-carousel .owl-item img {
+            width: 100%;
+            border-left: 10px solid #fff;
+            margin-left: -10px;
+        }        
+        .owl-carousel {
+            width: 90%
+        }        
+        .owl-carousel .owl-stage-outer {
+            width: 110%
+        }
+    </style>
+</head>
+<body>
+    <div id="owl" class="owl-carousel owl-theme">
+        <img src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage1.jpg">
+        <img src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage2.jpg">
+        <img src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage3.jpg">
+        <img src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage1.jpg">
+        <img src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage2.jpg">
+        <img src="http://owlgraphic.com/owlcarousel/demos/assets/fullimage3.jpg">
+    </div>
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#owl").owlCarousel({
+                navigation: true, // Show next and prev buttons
+                loop: true,
+                margin: 0,
+                slideSpeed: 300,
+                paginationSpeed: 400,
+                singleItem: true,
+                // "singleItem:true" is a shortcut for:
+                items: 1,
+            });
+        });
+    </script>
+</body>
+</html>

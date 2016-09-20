@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="utf-8">
+    <title>Swiper demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="css/owl.carousel.min.css">
+    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+
+    <style>
+        .owl-carousel .owl-item,
+        .scroller li {
+            text-align: center;
+            height: 150px;
+            margin-bottom: 50px;
+            background-color: aqua;
+            display: table;
+        }
+
+        .owl-carousel .owl-item>div,
+        .scroller li>div {
+            display: table-cell;
+            vertical-align: middle;
+        }
+        .iscroll{
+            overflow: hidden;
+        }
+
+        .scroller{
+            overflow: hidden;
+            width:1460px;
+        }
+
+        .scroller ul{
+            overflow: hidden;
+            margin:0;
+            padding:0;
+            margin-bottom:50px;
+            height: 150px;
+            width:1460px;
+        }
+        .scroller li{
+            float:left;
+            width:200px;
+            margin-left:10px;
+            background-color: yellowgreen;
+        }
+
+        .scroller li:first-child{
+            margin-left:0;
+        }
+
+        @media (min-width: 1068px) {
+            .owl-dots {
+                display: none
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="owl-v1" class="owl-theme owl-carousel">
+        <div><a href="#">owl 1</a></div>
+        <div><a href="#">owl 2</a></div>
+        <div><a href="#">owl 3</a></div>
+        <div><a href="#">owl 4</a></div>
+        <div><a href="#">owl 5</a></div>
+        <div><a href="#">owl 6</a></div>
+        <div><a href="#">owl 7</a></div>
+    </div>
+
+    <div class="iscroll">
+        <div class="scroller">
+           <ul>
+           <li><div>iscroll 1</div></li>
+           <li><div>iscroll 2</div></li>
+           <li><div>iscroll 3</div></li>
+           <li><div>iscroll 4</div></li>
+           <li><div>iscroll 5</div></li>
+           <li><div>iscroll 6</div></li>
+           <li><div>iscroll 7</div></li>
+           </ul>
+       </div>
+   </div>
+
+    <div id="owl-v2" class="owl-theme owl-carousel">
+        <div><a href="#">Slider 1</a></div>
+        <div><a href="#">Slider 2</a></div>
+        <div><a href="#">Slider 3</a></div>
+        <div><a href="#">Slider 4</a></div>
+        <div><a href="#">Slider 5</a></div>
+        <div><a href="#">Slider 6</a></div>
+        <div><a href="#">Slider 7</a></div>
+        <div><a href="#">Slider 8</a></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="js/iscroll.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            $('#owl-v1').owlCarousel({
+                loop: true,
+                margin: 10,
+                touchDrag: false,
+                mouseDrag: false,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        touchDrag: true,
+                        mouseDrag: true,
+                    },
+                    768: {
+                        items: 3,
+                        touchDrag: true,
+                        mouseDrag: true,
+                    },
+                    1068: {
+                        items: 7,
+                        loop: false,
+                        touchDrag: true,
+                        mouseDrag: true,
+                    }
+                }
+            })
+
+            $('#owl-v2').owlCarousel({
+                loop: true,
+                margin: 10,
+                touchDrag: false,
+                mouseDrag: false,
+                responsiveClass: true,
+                responsive: {
+                    0: {
+                        items: 2,
+                        touchDrag: true,
+                        mouseDrag: true,
+                    },
+                    768: {
+                        items: 2,
+                        touchDrag: true,
+                        mouseDrag: true,
+                    },
+                    1068: {
+                        items: 2,
+                        loop: false,
+                    }
+                }
+            })
+
+            $i = 1;
+
+            $(".iscroll").each(function () {
+                if ($(this).find("ul").find("li").length > 0) {
+                    $(this).attr("id", "iscroll" + $i);
+                    new IScroll("#iscroll" + $i, {
+                        snap: 'li',
+                        eventPassthrough: true,
+                        hScrollbar: false,
+                        scrollX: true,
+                        scroll1Y: false
+                    });
+                    $i++;
+                }
+            });
+
+
+        });
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,minimum-scale=1.0,user-scalable=no">
+<title>Snb 슬라이드</title>
+<link rel="stylesheet" href="//cdn.jsdelivr.net/xeicon/2.0.0/xeicon.min.css">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/snb.css">
+</head>
+<body>
+<div class="admin_wrap">
+    <header class="xo-navbar xo-navbar-static-top">
+        <button type="button" class="btn_slide"><i class="xi-dedent"></i><span class="blind">메뉴 숨기기</span></button>        
+    </header>
+    <aside class="trasition">
+        <div class="logo_area trasition">
+            <h1><a href="#">Logo & Web title</a></h1>
+        </div>    
+    </aside>
+    <div id="content" class="trasition">
+        <div class="ct">
+            <h1>컨텐츠 영역</h1>
+        </div>
+    </div>        
+</div>
+<div class="dim"></div>    
+<script src="js/jquery.min.js"></script>
+<script>
+$(document).ready(function(){
+    
+    $(".dim").on('click', function () { // 모바일에서 dim 클릭 시 snb 초기화
+        $("aside").removeClass("open");
+        $(".dim").hide()
+        $("body").css("overflow", "");
+        $("html").css("position", "");
+    });
+
+    $(".btn_slide").on('click', function (e) {
+        // mobile
+        if ($(window).innerWidth() < 768) {
+            // close sidebar
+            if ($('aside').hasClass("open")) {
+                $("aside").removeClass("open");
+
+            // open sidebar
+            } else {
+                $("aside").addClass("open");
+                $(".dim").show()
+                $("body").css("overflow", "hidden");
+				$("html").css("position", "fixed");//딤드 밑으로 스크롤이 되지 않도록 설정 함
+                //$(this).off('click');
+            }
+        // desktop
+        } else {
+            $('body').toggleClass("sidebar-collapse");
+			
+        }
+    });    
+});
+    
+$(window).resize(function() {
+	var innerWidth; // 화면 width 값
+	
+	innerWidth = $(window).innerWidth();
+	// 모바일 메뉴 노출 상태에서 화면이 커졌을 경우 snb_lst가 정상 노출을 위해 적용
+	if(innerWidth > 768) {
+		$(".snb_lst").css("display",'');
+	}
+});	
+</script>
+</body>
+</html>
