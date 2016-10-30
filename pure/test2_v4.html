@@ -1,0 +1,46 @@
+<html>
+<head>
+    <title>www.webmadang.net</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+    <script language="JavaScript">
+        <!--
+        function CheckEnter(frm, objName) {
+//            console.log(frm);
+            var keycode = event.keyCode;
+            var i = 0;
+
+            if( keycode == 13 ){
+//                debugger;
+                for( i = 0; i < frm.length; i++ ){
+                    if( objName.name == frm[i].name){
+                        // for 구문을 빠져나오기 위한 단순 if문인가?..
+                        // enter 된 input의 name 값과 frm[i] 값과 비교하여
+                        // 같으면 빠져나온다
+                        console.log(objName.name);
+                        console.log(frm[i].name);
+                        break; // break가 없으면 focus로 넘어가지 못한다, 인식못한다?
+                    }
+                }
+//                console.log(frm[i]);
+                frm[++i].focus(); // 먼저 index를 변경 후 focus를 한다, 후위 연산으로 변경되면 실행 안됨
+            }
+        }
+//-->
+    </script>
+</head>
+<body>
+<form name="form">
+    이름<input name="name" type="text" OnKeyDown="CheckEnter(this.form,this)"><br>
+    주소<input name="addr" type="text" OnKeyDown="CheckEnter(this.form,this)"><br>
+    취미<input name="hobby" type="text" OnKeyDown="CheckEnter(this.form,this)"><br>
+    <input name="button" type="button" value="전송">
+</form>
+1. 태그에 직접 이벤트 핸들러 등록
+2. 함수>for문 내에서 엔터키 이벤트 시 다음 엘리먼트로 이동
+
+1. for 문을 통해 dataset 등록
+2. dataset 통해 이벤트 등록
+3. 엔터 기 입력 시 다음 엘리먼트로 이동
+
+</body>
+</html>

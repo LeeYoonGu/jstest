@@ -11,10 +11,12 @@
         var arr = []
         for (var i = 0; i < 5; i++) {
             arr[i] = function(id) { // id라는 매개변수로 받아서 id를 return해 준다. 
-                return function() {
+                return function() { // [index]() 영역
                     return id;
                 }
-            }(i); // for 문을 통해 i 증감값을 인자로 넘겨주고
+            }(i);
+            // for 문을 통해 i 증감값을 인자로 넘겨준다
+            // 없을 시 inner 함수만 5번실행됨
         }
         for (var index in arr) {
             console.log(arr[index]());

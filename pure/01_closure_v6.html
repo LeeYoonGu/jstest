@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>속깊은closure</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+</head>
+<body>
+
+<script>
+    var pendingInterval = false; // 전역 변수를 사용하는 단점
+    function setPending() {
+
+        if (!pendingInterval) {
+            pendingInterval = setInterval(startPending, 500);
+        } else {
+            clearInterval(pendingInterval);
+            pendingInterval = false;
+        }
+    }
+
+
+    function startPending() {
+        var div = document.getElementById("pending");
+        if (div.innerHTML.length > 12) {
+            div.innerHTML = "Pending";
+        }
+        div.innerHTML += "."; // if조건이 12 이상일 때 이므로 if문 안에 넣으면 실행이 되지 않는다
+    }
+</script>
+<button onclick="javascript:setPending();">Toggle Pending</button>
+<div id="pending">Pending</div>
+
+
+
+
+</body>
+</html>

@@ -5,28 +5,41 @@
     <title>calculate two</title>    
 </head>
 <body>
-    <p id="result">
-        
-    </p>
-    <script type="text/javascript">
-        var a = prompt("input your number a")
-        var b = prompt("input your number b")
-        var c = prompt("input your calculate")
 
-        function calc(x, y, c) {
-            if (c == "*") {
-                return x * y;
-            }else if(c =="+"){
-                return parseInt(x) + parseInt(y);
-            }else if(c =="-"){
-                return parseInt(x) - parseInt(y);
-            }else if(c =="/"){
-                return parseInt(x) / parseInt(y);
-            }else{
-                return "연산자만 입력하세요";
-            }
+    <div>
+        <input type="text" class="text">
+        <input type="text" class="text">
+        <input type="text" class="text">
+        <input type="text" class="text">
+        <input type="text" class="text">
+    </div>
+
+    <script type="text/javascript">
+        var input_text = document.getElementsByClassName('text');
+
+        for (var i = 0; i < input_text.length; i++) {
+            input_text[i].dataset.index=i;
+            input_text[i].addEventListener('keypress', function () {
+                input_text[++i].focus();
+                console.log(this);
+            });
         }
-        document.getElementById("result").innerHTML = calc(a,b,c);
+
+//        function enterKey(obj, event) {
+//            var key = event.keyCode;
+//            if(key == 13){
+////                console.log(key);
+////                console.log(input_text[i]); //undefined
+////                console.log(obj); //this
+//
+//                var x = obj.getAttribute("data-index")
+//                console.log(x);
+//
+//            }
+//        }
+
+
+
     </script>
 </body>
 </html>

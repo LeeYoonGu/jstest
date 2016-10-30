@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>calculate two</title>    
+</head>
+<body>
+
+    <div>
+        <input type="text" class="text" onkeypress="handleEnter(this)">
+        <input type="text" class="text" onkeypress="handleEnter(this)">
+        <input type="text" class="text" onkeypress="handleEnter(this)">
+        <input type="text" class="text" onkeypress="handleEnter(this)">
+        <input type="text" class="text" onkeypress="handleEnter(this)">
+        <input type="text" class="text" onkeypress="handleEnter(this)">
+    </div>
+
+    <script type="text/javascript">
+
+        var handleEnter = (function () {
+
+        }())
+
+        var input_text = document.getElementsByClassName('text');
+
+        for (var i = 0; i < input_text.length; i++) {
+            input_text[i].dataset.index=i;
+            input_text[i].addEventListener('keypress', function () {
+                enterKey(this);
+            });
+        }
+
+        function enterKey(obj) {
+            var key = event.keyCode;
+            if(key == 13){
+                console.log(key);
+                console.log(input_text[i]);
+//                input_text[i+1].focus();
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

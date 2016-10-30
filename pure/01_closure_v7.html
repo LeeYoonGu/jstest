@@ -1,0 +1,36 @@
+<html>
+<head>
+    <title>속깊은closure2</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
+</head>
+<body>
+
+<button onclick="javascript:setPending2();">Toggle Pending</button>
+<div id="pending2">Pending2</div>
+<script>
+    var setPending2 = (function () {
+        var pendingInterval = false,
+            div = document.getElementById("pending2"); // #1
+
+        function startPending() {    // #2
+            if (div.innerHTML.length > 13) {
+                div.innerHTML = "Pending2";
+            }
+            div.innerHTML += ".";
+        };
+        return function () {  // #3
+            if (!pendingInterval) {
+                pendingInterval = setInterval(startPending, 500);
+            } else {
+                clearInterval(pendingInterval);
+                pendingInterval = false;
+            }
+        };
+    }());
+</script>
+<p>바로 매번 startPending 함수가 호출될때마다 div = getElementById()를 하던 것을 한번만 하도록 closure에 변수로
+    저장해둔 것이다. 이것은 전역변수가 아니라서 전역변수를 싫어하는 개발자들의 마음을 아프게하지도 않는다.
+    이전까지 전역변수가 난무하던 자바스크립트의 개발 방법이 closure에 대한 이해가 늘어나면서 이러한 식으로
+    encapsulate하고 자기의 변수를 보호하는 방식의 개발 방법론으로 개선되고 있는 것이다. </p>
+</body>
+</html>

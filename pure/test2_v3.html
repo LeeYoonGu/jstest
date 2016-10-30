@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>calculate two</title>    
+</head>
+<body>
+<script type="text/javascript">
+    function handleEnter (field, event) {
+        var keyCode = event.keyCode ? event.keyCode : event.which ? event.which : event.charCode;
+
+        var fm = document.getElementsByClassName('fm')[0].children;
+//        var fm = document.getElementsByClassName('text');
+//        console.dir(fm);
+//        console.log(field.form.elements.length); //3
+
+        if (keyCode == 13) {
+//            console.log(field);
+            for (var i = 0; i < fm.length; i++)
+                if (field == fm[i]) { // if문의 순서가 바뀌면 실행 안됨 i의 값이 변경되기 때문
+                    break;
+                }
+            var i = (i + 1) % fm.length;
+            console.log(i); //1,2
+            fm[i].focus();
+        }
+    }
+
+</script>
+
+<!--2. <BODY> 태그내에 onload="" 혹은 onunload 부분이 있으면 복사해 넣으세요-->
+
+<!--아래 입력상자에서 엔터키를 치면 다음항목으로 포커스가 이동합니다.-->
+<div class="fm">
+    <input type="text" onkeypress="return handleEnter(this, event)" class="text">
+    <input type="text" onkeypress="return handleEnter(this, event)" class="text">
+    <textarea class="text"></textarea>
+</div>
+
+</body>
+</html>
