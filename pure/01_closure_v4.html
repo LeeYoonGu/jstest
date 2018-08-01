@@ -20,18 +20,15 @@
             var appendDiv = document.getElementById("appendDiv"); // #1
 
             document.getElementById("wrapper").addEventListener("click", append);
-            // function 형태로 호출하면 error.. 원인을 모르겠다
 
             function append(e) {
-                // console.log("document click")
                 var target = e.target || e.srcElement || e.srcElement; // click 되는 target을 담음
-                console.log(target); // boolean은 아니다
+                console.log(target);
                 var callbackFunction = callback[target.getAttribute("data-cb")];
                 // target의 data-cb의 값을 담음 배열 표기식으로 사용했다.(중요)
                 appendDiv.appendChild(callbackFunction());
-                //★callbackFunction이 변수이지만 callback 객체의 함수를 사용할 수 있음
-                // console.log(callbackFunction)
             };
+
             var callback = {
                 "1": (function() {
                     var div = document.createElement("div"); // #2

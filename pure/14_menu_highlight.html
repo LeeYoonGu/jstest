@@ -33,6 +33,7 @@
                     var $this = $(this),
                         pageURL = location.href, // 현재 페이지 주소를 pageURL 변수에 할당.
                         menuURL = $this.attr("href"); // 메뉴 링크 값을 menuURL 변수에 할당.
+
                     if (pageURL.indexOf(menuURL) !== -1) {
                       // 페이지 URL 값과 메뉴 URL 값을 비교(동일 문자열이 존재하는 경우 일치하는 문자열의 위치 값이 숫자로 반환되지만, 동일한 값이 없으면 -1이 반환되는 조건을 이용)
                         $this.parent().addClass("current"); // 동일한 문자열이 존재하는 경우 li 요소에 .current 클래스를 추가.

@@ -27,7 +27,7 @@
         for (var i = 0; i < document.querySelectorAll("div").length; i++) {
           (document.querySelectorAll("div")[i]).style.display = "none"; //div 순차적으로 none 처리
         }
-        console.log(a.innerHTML) // 클릭된 놈의 인자를 넘겨 받아 이너 HTML을 뿌려줌
+        console.log(a.innerHTML); // 클릭된 놈의 인자를 넘겨 받아 이너 HTML을 뿌려줌
 
         document.querySelectorAll("div")[a.innerHTML - 1].style.display = "block"; //li a html 값을 배열로 받음
       }

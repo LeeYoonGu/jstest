@@ -1,20 +1,18 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>accordion content</title>
-
-<link rel="stylesheet" href="//cdn.jsdelivr.net/xeicon/1.0.4/xeicon.min.css">
-<style type="text/css">
-.xi{display:inline-block;font-family:xeicon;font-style:normal;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
-.accordion-container{width:100%;margin:0 0 2px;clear:both;}
-.accordion-toggle{position:relative;display:block;padding:20px;font-size:16px;font-weight:300;background:#999;color:#fff;text-decoration:none;padding-left:3em}
-.accordion-toggle.open{background:#333;color:#fff;}
-.accordion-toggle:hover{background:#666;}
-.accordion-toggle span.toggle-icon{position:absolute;top:16px;left:20px;font-size:1.5em;}
-.accordion-content{display:none;padding:20px;overflow:auto;}
-.accordion-content img{display:block;float:left;margin:0 15px 10px 0;max-width:100%;height:auto;}
-</style>
+    <meta charset="utf-8">
+    <title>accordion content</title>
+    <style type="text/css">
+        .xi{display:inline-block;font-family:xeicon;font-style:normal;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+        .accordion-container{width:100%;margin:0 0 2px;clear:both;}
+        .accordion-toggle{position:relative;display:block;padding:20px;font-size:16px;font-weight:300;background:#999;color:#fff;text-decoration:none;padding-left:3em}
+        .accordion-toggle.open{background:#333;color:#fff;}
+        .accordion-toggle:hover{background:#666;}
+        .accordion-toggle span.toggle-icon{position:absolute;top:16px;left:20px;font-size:1.5em;}
+        .accordion-content{display:none;padding:20px;overflow:auto;}
+        .accordion-content img{display:block;float:left;margin:0 15px 10px 0;max-width:100%;height:auto;}
+    </style>
 </head>
 <body>
 <section id="qa_section">
@@ -36,7 +34,7 @@
                 </div>
                 <!--/.accordion-content-->
             </div>
-        	<!--/.accordion-container-->
+            <!--/.accordion-container-->
             <div class="accordion-container">
                 <a href="#" class="accordion-toggle">질문항목 영역2<span class="toggle-icon"><i class="xi xi-plus-circle"></i></span></a>
                 <div class="accordion-content" style="display: none;">
@@ -45,34 +43,34 @@
                 </div>
                 <!--/.accordion-content-->
             </div>
-    	</div>
-	</div>
+        </div>
+    </div>
 </section>
 
 <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
 <!-- accordion interaction -->
 <script type="text/javascript">
-$(document).ready(function () {
-	$('.accordion-toggle').on('click', function(event){
-		event.preventDefault();
-		// create accordion variables
-		var accordion = $(this);
-		var accordionContent = accordion.next('.accordion-content');
-		var accordionToggleIcon = $(this).children('.toggle-icon');
+    $(document).ready(function () {
+        $('.accordion-toggle').on('click', function(event){
+            event.preventDefault();
+            // create accordion variables
+            var accordion = $(this);
+            var accordionContent = accordion.next('.accordion-content');
+            var accordionToggleIcon = $(this).children('.toggle-icon');
 		
-		// toggle accordion link open class
-		accordion.toggleClass("open");
-		// toggle accordion content
-		accordionContent.slideToggle(250);
+            // toggle accordion link open class
+            accordion.toggleClass("open");
+            // toggle accordion content
+            accordionContent.slideToggle(250);
 		
-		// change plus/minus icon
-		if (accordion.hasClass("open")) {
-			accordionToggleIcon.html("<i class='xi xi-minus-circle'></i>");
-		} else {
-			accordionToggleIcon.html("<i class='xi xi-plus-circle'></i>");
-		}
-	});
-});
+            // change plus/minus icon
+            if (accordion.hasClass("open")) {
+                accordionToggleIcon.html("<i class='xi xi-minus-circle'></i>");
+            } else {
+                accordionToggleIcon.html("<i class='xi xi-plus-circle'></i>");
+            }
+        });
+    });
 </script>
 <!-- //accordion interaction -->
 </body>
